@@ -1,0 +1,21 @@
+{
+  "recipientName": "Camille",
+  "birthdayMessage": "It is your birthday again! This time I use AI help to make your birthday extra special. I couldn't decide what present to give you this year... So I decided to let you choose. I love you so much and I hope you have a wonderful birthday! 💖",
+  "cards": [
+    {
+      "icon": "🌹",
+      "title": "A Romantic Buffet Date",
+      "description": "A special date at Manila Peninsula Buffet to celebrate your birthday. ❤️"
+    },
+    {
+      "icon": "🎁",
+      "title": "A Gift You Choose",
+      "description": "You get to pick one item you've been wanting. This one is entirely up to you. 😊"
+    },
+    {
+      "icon": "✨",
+      "title": "Shopping Spree 10k",
+      "description": "Let us buy whatever you want and need! Clothes, accessories, or anything else you have your heart set on. 🥰"
+    }
+  ]
+}

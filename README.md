@@ -3,14 +3,23 @@
 A simple, mobile-friendly interactive birthday mini-website.
 
 ## Run locally
-Open `index.html` in a browser, or use VS Code with the Live Server extension.
+Use VS Code with the Live Server extension, or run a small static server from this folder:
+
+```sh
+python -m http.server 8000
+```
+
+Then open `http://localhost:8000`.
 
 ## Customize
-Open `index.html` and edit:
-- The main birthday message
-- The three mystery card titles
-- The three reveal descriptions
-- Emoji/icons
+Open `birthday-config.json` and edit:
+- `recipientName`
+- `birthdayMessage`
+- The three mystery card icons, titles, and descriptions
+
+The site stores the chosen card in the browser after selection. After the other surprises are revealed, there is no reset button and the closed-card view will not return on that same browser.
+
+Open `index.html` and edit only if you want to change:
 - Colors and fonts in the `<style>` section
 
 ## Publish with GitHub Pages
