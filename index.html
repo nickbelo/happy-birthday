@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+:root{--bg1:#fff7f4;--bg2:#f8e4e0;--ink:#392b2b;--accent:#a94d58;--gold:#b98a52}
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Inter,sans-serif;color:var(--ink);background:radial-gradient(circle at 20% 10%,#fff 0 12%,transparent 35%),linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;overflow-x:hidden}
+.container{width:min(980px,92vw);padding:55px 0;text-align:center}.eyebrow{letter-spacing:4px;text-transform:uppercase;font-size:12px;color:var(--gold);font-weight:600}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:700}h1{font-size:clamp(48px,9vw,88px);line-height:.9;margin:15px 0 20px}.intro{max-width:650px;margin:auto;font-size:17px;line-height:1.8}.heart{font-size:38px;margin:20px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:42px}.card{height:330px;border:0;border-radius:24px;background:transparent;perspective:1000px;cursor:pointer;padding:0}.inner{height:100%;width:100%;position:relative;transition:transform .75s cubic-bezier(.2,.75,.2,1);transform-style:preserve-3d}.card.flipped .inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:24px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;box-shadow:0 18px 45px #5b343420}.front{background:linear-gradient(145deg,#fff,#f3d6d4);border:1px solid #ffffffaa}.front .number{font-family:"Cormorant Garamond";font-size:64px;color:var(--accent)}.front .hint{font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-top:12px}.front:after{content:"✦";position:absolute;top:20px;right:24px;color:var(--gold)}.back{background:#fff;transform:rotateY(180deg);border:1px solid #e8c7c4}.back .icon{font-size:44px}.back h2{font-size:34px;margin:15px 0 8px;color:var(--accent)}.back p{font-size:14px;line-height:1.65;margin:0}
+.note{margin-top:34px;font-size:13px;color:#765f5f}.selected .card:not(.flipped){opacity:.35;filter:grayscale(1);pointer-events:none}.selected .card.flipped{transform:scale(1.02)}
+#replay{display:none;margin-top:28px;border:1px solid var(--accent);background:transparent;color:var(--accent);padding:11px 20px;border-radius:999px;cursor:pointer}
+.footer{margin-top:50px;font-family:"Cormorant Garamond";font-size:24px;color:var(--accent)}
+@media(max-width:700px){.cards{grid-template-columns:1fr;max-width:340px;margin-left:auto;margin-right:auto}.card{height:220px}.front .number{font-size:52px}}
+</style>
+</head>
+<body>
+<main class="container">
+  <div class="eyebrow">For your birthday</div>
+  <h1>A little surprise<br>for you ❤️</h1>
+  <p class="intro">I couldn't decide what present to give you this year…<br>
+  So I decided to let <strong>you</strong> choose.<br><br>
+  There are three surprises. You won't know what's inside until you pick one.</p>
+  <div class="heart">♡</div>
+
+  <section class="cards" id="cards">
+    <button class="card" data-choice="0" aria-label="Mystery choice one">
+      <div class="inner">
+        <div class="face front"><div class="number">I</div><div class="hint">Mystery</div></div>
+        <div class="face back"><div class="icon">🌹</div><h2>A Romantic Date</h2><p>A special date planned just for the two of us. You just need to be ready. ❤️</p></div>
+      </div>
+    </button>
+    <button class="card" data-choice="1" aria-label="Mystery choice two">
+      <div class="inner">
+        <div class="face front"><div class="number">II</div><div class="hint">Mystery</div></div>
+        <div class="face back"><div class="icon">🎁</div><h2>A Gift You Choose</h2><p>You get to pick something you've been wanting. This one is entirely up to you. 😊</p></div>
+      </div>
+    </button>
+    <button class="card" data-choice="2" aria-label="Mystery choice three">
+      <div class="inner">
+        <div class="face front"><div class="number">III</div><div class="hint">Mystery</div></div>
+        <div class="face back"><div class="icon">✨</div><h2>A Mystery Adventure</h2><p>I'm taking you somewhere. The destination stays secret until the big reveal. 🥰</p></div>
+      </div>
+    </button>
+  </section>
+
+  <div class="note" id="note">Choose carefully… there are no wrong answers. 😉</div>
+  <button id="replay">Reset the surprises</button>
+  <div class="footer">Happy Birthday, my love. ❤️</div>
+</main>
+<script>
+const cards=[...document.querySelectorAll('.card')], wrap=document.getElementById('cards'), note=document.getElementById('note'), replay=document.getElementById('replay');
+cards.forEach(card=>card.addEventListener('click',()=>{
+  if(wrap.classList.contains('selected')) return;
+  card.classList.add('flipped'); wrap.classList.add('selected');
+  note.textContent='And that is your birthday surprise. ❤️';
+  replay.style.display='inline-block';
+  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'center'}),150);
+}));
+replay.addEventListener('click',()=>{
+  cards.forEach(c=>c.classList.remove('flipped')); wrap.classList.remove('selected');
+  note.textContent='Choose carefully… there are no wrong answers. 😉'; replay.style.display='none';
+});
+</script>
+</body>
+</html>
